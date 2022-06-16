@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.patrick.VotingSystemBackend.repository.VotingMapper">
+
+
+    <resultMap id="getPresidents" type="com.patrick.VotingSystemBackend.dto.Presidents">
+        <result column="ID" property="id"/>
+        <result column="FIRST_NAME" property="firstName"/>
+        <result column="LAST_NAME" property="lastName"/>
+        <result column="CANDIDATE_NUMBER" property="candidateNumber"/>
+    </resultMap>
+
+    <select id="getPresidents" resultMap="getPresidents">
+        SELECT
+            id,
+            first_name,
+            last_name,
+            candidate_number
+        FROM
+            PRESIDENTIAL_CANDIDATES
+    </select>
+
+</mapper>
