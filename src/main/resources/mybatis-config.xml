@@ -16,5 +16,6 @@
     </environments>
     <mappers>
         <mapper resource="mapper/VotingMapper.xml"/>
+        <mapper resource="mapper/RegistrationMapper.xml"/>
     </mappers>
 </configuration>

@@ -15,12 +15,31 @@
 
     <select id="getPresidents" resultMap="getPresidents">
         SELECT
-            id,
-            first_name,
-            last_name,
-            candidate_number
+            *
         FROM
             PRESIDENTIAL_CANDIDATES
     </select>
+
+    <resultMap id="getSenatorsList" type="com.patrick.VotingSystemBackend.dto.Senators">
+        <result column="ID" property="id"/>
+        <result column="FIRST_NAME" property="firstName"/>
+        <result column="LAST_NAME" property="lastName"/>
+        <result column="CANDIDATE_NUMBER" property="candidateNumber"/>
+    </resultMap>
+
+    <select id="getSenatorsList" resultMap="getSenatorsList">
+        SELECT
+            *
+        FROM
+            SENATORIAL_CANDIDATES
+    </select>
+
+    <insert id="castVote" parameterType="com.patrick.VotingSystemBackend.dto.UserVote" useGeneratedKeys="true" keyColumn="id" >
+        INSERT INTO
+            ELECTION_RESULT(city, username,president, vice_president, senator_01, senator_02, senator_03, senator_04, senator_05, senator_06, senator_07, senator_08, senator_09, senator_10, senator_11, senator_12)
+        VALUES
+            ( #{city}, #{username}, #{president}, #{vicePresident}, #{senator01}, #{senator02}, #{senator03}, #{senator04},
+            #{senator05}, #{senator06}, #{senator07}, #{senator08}, #{senator09}, #{senator10}, #{senator11}, #{senator12})
+    </insert>
 
 </mapper>

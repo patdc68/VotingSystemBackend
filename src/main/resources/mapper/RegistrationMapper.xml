@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.patrick.VotingSystemBackend.repository.RegistrationMapper">
+
+    <insert id="registerUser" parameterType="com.patrick.VotingSystemBackend.dto.Registration" useGeneratedKeys="true" keyColumn="id">
+        INSERT INTO
+            USER_INFO(first_name, last_name, region, city, barangay, street, username, password)
+        VALUES
+            (#{firstName}, #{lastName}, #{region}, #{city}, #{barangay}, #{street}, #{username}, #{password})
+    </insert>
+
+
+</mapper>
